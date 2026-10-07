@@ -1,0 +1,9 @@
+
+**2. .gitignore:**
+
+```powershell
+@"
+*.pem
+*.key
+.env
+"@ | Out-File -Encoding utf8 .gitignore
