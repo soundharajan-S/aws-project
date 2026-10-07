@@ -1,31 +1,33 @@
-@"
 # AWS Project - awsproject.in
 
-🌐 Live: https://awsproject.in
-🔒 HTTPS Enabled with Let's Encrypt
+🌐 **Live Site:** https://awsproject.in  
+🔒 **HTTPS:** Enabled with Let's Encrypt SSL  
+✅ **Status:** Live in Production
 
-## Services Used (No DevOps Tools)
-- **EC2** - Hosting (Amazon Linux + Apache)
-- **IAM Role** - EC2 to S3 access (Secure, no keys)
-- **S3** - Storage for backups/assets
-- **RDS** - Database (MySQL)
-- **ACM / Certbot** - SSL Certificate for HTTPS
-- **Route53 / GoDaddy** - Domain
+### Stack Used (No DevOps Tools)
+- **EC2** - Amazon Linux + Apache (Hosting)
+- **IAM Role** - EC2 to S3 Secure Access
+- **S3** - Storage
+- **RDS** - MySQL Database
+- **Route53 / Certbot** - Domain + SSL (ACM)
 
-## Architecture
-User -> Domain (awsproject.in) -> EC2 -> S3 + RDS
-EC2 has IAM Role to access S3
-Certbot gives HTTPS
+### Architecture
+User -> awsproject.in -> EC2 (Apache) -> S3 + RDS
+EC2 has IAM Role for S3 access (No hardcoded keys)
+SSL via Certbot for HTTPS
 
-## How I Deployed
-1. Launched EC2
-2. Created IAM Role for S3 access and attached to EC2
-3. Created S3 bucket
-4. Created RDS MySQL
-5. Hosted website on EC2 Apache
-6. Configured domain awsproject.in to EC2 IP
-7. Installed Certbot and enabled HTTPS
+### Live Proof
 
+**1. EC2 Running**
+![EC2](ec2-running-screenshorts.png)
+
+**2. HTTPS Lock**
+![HTTPS](awsproject.in%20https%20lock%20screenshot.png)
+
+**3. DNS Live**
+![DNS](DNS-progation-live.png)
+
+### How I Deployed
 ```bash
 sudo yum install httpd -y
 sudo systemctl start httpd
